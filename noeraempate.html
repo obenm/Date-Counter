@@ -1,0 +1,98 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>No era Empate ! :(</title>
+  <link href="https://fonts.googleapis.com/css?family=Fjalla+One" rel="stylesheet">
+  <style>
+    body{
+      background: black;
+      text-align: center;
+      margin auto;
+      background: url(batmanBg.jpg);
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-attachment: fixed;
+    }
+    section{
+      vertical-align: center;
+      height: 98vh;
+      background: rgba(0, 0, 0, 0.05);
+    }
+    #title{
+      display: block;
+      font-family: 'Fjalla One', sans-serif;
+      font-size: 12vw;
+      color: white;
+      margin: 0 auto;
+      text-align: center;
+    }
+    #subtitle{
+      display: block;
+      font-family: 'Fjalla One', sans-serif;
+      font-size: 6vw;
+      color: white;
+      margin: 0 auto;
+      text-align: center;
+    }
+    #days{
+      display: block;
+      margin: 5vh auto;
+      text-align: center;
+      width: 95vw;
+    }
+    #days > div{
+      width: 15vh;
+      height: 20vh;
+      background: #ccc;
+      border-radius: 25px;
+      border: 1px solid #333;
+      color: #333;
+      font-size: 20vh;
+      font-family: 'Fjalla One', sans-serif;
+      text-align: center;
+      line-height: 22vh;
+      vertical-align: middle;
+      margin: 0 auto;
+      display: inline-block;
+      margin: 0 auto;
+    }
+    #none{
+      font-family: 'Fjalla One', sans-serif;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      color: rgba(255, 255, 255, 0.01);
+    }
+  </style>
+</head>
+
+<body>
+  <section>
+    <h1 id="title">No era Empate ! <strong>:(</strong></h1>
+    <h2 id="subtitle">Día #</h2>
+    <div id="days"></div>
+    <h5 id="none">Te quiero mucho Frida Ethel ♥️</h5>
+  </section>
+
+  <script src="js/scripts.js"></script>
+  <script>
+  var dateObj = new Date();
+  var month = dateObj.getMonth() + 1; //months from 1-12
+  var day = dateObj.getDate();
+  var year = dateObj.getFullYear();
+  var oneDay = 24*60*60*1000; // hours*minutes*seconds*milliseconds
+  var firstDate = new Date(2017, 05, 03);
+  var secondDate = new Date(year, month, day);
+  var diffDays = Math.round(Math.abs((firstDate.getTime() - secondDate.getTime())/(oneDay)));
+  var chars = String(diffDays + 1).split('');
+  for (var i = 0; i < chars.length; i++) {
+    var node = document.createElement("div");
+    var textnode = document.createTextNode(chars[i]);
+    node.appendChild(textnode);
+    document.getElementById("days").appendChild(node);
+  }
+  </script>
+</body>
+</html>
